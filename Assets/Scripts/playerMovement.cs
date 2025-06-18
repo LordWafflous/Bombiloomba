@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
@@ -131,7 +132,6 @@ public class playerMovement : MonoBehaviour
         inventoryPages[index + 1].SetActive(true);
     }
 
-
     public void move()
     {
         if (Input.GetKey(KeyCode.LeftShift) && shiftRun != null)
@@ -148,5 +148,7 @@ public class playerMovement : MonoBehaviour
     {
         SceneManager.LoadScene(2); //Wet Ruins
     }
+
+
     
 }
