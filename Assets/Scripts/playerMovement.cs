@@ -12,10 +12,14 @@ public class playerMovement : MonoBehaviour
     [Header("Events")]
     UnityEvent shiftRun = new UnityEvent();
     UnityEvent sceneChange = new UnityEvent();
+    UnityEvent inventoryActions = new UnityEvent();
 
     [Header("Components")]
     public float speed;
     public GameObject inventoryPanel;
+
+    public List<GameObject> inventoryPages;
+    private int inventoryIndex = 0;
 
     [Header("Settings")]
     public bool holdI = false;
@@ -27,13 +31,19 @@ public class playerMovement : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
         player.sleepMode = RigidbodySleepMode2D.NeverSleep; //onTriggerStay stopped because rigid body slept :skull:
 
-        shiftRun.AddListener(shiftRunFunc);
+        shiftRun.AddListener(move);// can chain events like this
+
         sceneChange.AddListener(clickDoor);
-        
+
+        inventoryActions.AddListener(changeInventoryPage);
 
         Debug.Log("Yippie");
 
         inventoryPanel.SetActive(false);
+        foreach (GameObject page in inventoryPages)
+        {
+            page.SetActive(false);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -46,18 +56,8 @@ public class playerMovement : MonoBehaviour
         player.velocity = direction * speed;
         player.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        if (Input.GetKey(KeyCode.LeftShift) && shiftRun != null)
-        {
-            shiftRun.Invoke();
-        }
-        else
-        {
-            speed = 4;
-        }
-
+        shiftRun.Invoke();
         handleInventory();
-        
-        
 
     }
     void OnCollisionEnter2D(Collision2D col)
@@ -75,6 +75,11 @@ public class playerMovement : MonoBehaviour
 
     void handleInventory()
     {
+        if (inventoryPanel.activeSelf)
+        {
+            inventoryActions.Invoke();
+            speed = 0;
+        }
         if (!holdI && Input.GetKeyDown(KeyCode.Tab))
         {
             if (inventoryPanel.activeSelf)
@@ -90,14 +95,54 @@ public class playerMovement : MonoBehaviour
         {
             inventoryPanel.SetActive(true);
         }
-        else if(holdI)
+        else if (holdI)
         {
             inventoryPanel.SetActive(false);
         }
     }
-    public void shiftRunFunc()
+
+    void changeInventoryPage()
     {
-        speed = 6;
+
+        int index = inventoryIndex * 2; //current Index
+
+        if (Input.GetKeyDown(KeyCode.A)) //left page decrement
+        {
+            if (inventoryIndex > 0)
+            {
+                inventoryPages[index].SetActive(false);
+                inventoryPages[index + 1].SetActive(false);
+                inventoryIndex--;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.D)) //right page increment
+        {
+            if (inventoryIndex * 2 < inventoryPages.Count - 2) //we have -2 because invIndex should go from 0 to 2 (if no -2 it goes to 3 which is out of range)
+            {
+                inventoryPages[index].SetActive(false);
+                inventoryPages[index + 1].SetActive(false);
+                inventoryIndex++;
+            }
+        }
+
+        index = inventoryIndex * 2;
+
+        inventoryPages[index].SetActive(true);
+        inventoryPages[index + 1].SetActive(true);
+    }
+
+
+    public void move()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && shiftRun != null)
+        {
+            speed = 6;
+        }
+        else
+        {
+            speed = 4;
+        }
+
     }
     public void clickDoor()
     {
