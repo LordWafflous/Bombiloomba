@@ -10,12 +10,14 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [Header("UI")]
     public Image slot;
     public Image frame;
-    public enum SlotType { Inventory, Hotbar}
+    public enum SlotType { Inventory, Hotbar, Chest, Store }
     public SlotType slotType;
 
     private Color ogColorSlot;
     private Color ogColorFrame;
     private bool clickSlot = false;
+
+    public GameObject inventoryItemPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +36,7 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -51,10 +53,30 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnDrop(PointerEventData eventData)
     {
+        foreach (inventorySlot item in allSlots)
+        {
+            item.slot.color = ogColorSlot;
+            item.frame.color = ogColorFrame;
+            item.clickSlot = false;
+        }
+        clickSlot = true;
+        frame.color = new Color(1f, 1f, 1f, 1f);
+        slot.color = new Color(0.6f, 1f, 1f, 1f);
+
+        inventoryItem inventoryItem = eventData.pointerDrag.GetComponent<inventoryItem>();
         if (transform.childCount == 0)
         {
-            inventoryItem inventoryItem = eventData.pointerDrag.GetComponent<inventoryItem>();
             inventoryItem.parentAfterDrag = transform;
+            
+        }
+        else //swap items
+        {
+            inventoryItem item2 = GetComponentInChildren<inventoryItem>();
+            Transform draggedItemSlot = inventoryItem.parentAfterDrag;
+            item2.transform.SetParent(draggedItemSlot);
+            inventoryItem.parentAfterDrag = transform;
+
+            
         }
     }
 
@@ -75,8 +97,12 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             item.frame.color = ogColorFrame;
             item.clickSlot = false;
         }
-        clickSlot = clickSlot ? false : true;
-        frame.color = new Color(1f, 1f, 1f, 1f);
-        slot.color = new Color(0.6f, 1f, 1f, 1f);
-    }
+        if (slotType == SlotType.Hotbar)
+        {
+            clickSlot = clickSlot ? false : true;
+            frame.color = new Color(1f, 1f, 1f, 1f);
+            slot.color = new Color(0.6f, 1f, 1f, 1f);
+        }
+        
+    }  
 }
