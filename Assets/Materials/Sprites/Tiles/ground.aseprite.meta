@@ -150,7 +150,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 192
-      y: 118
+      y: 119
       width: 64
       height: 70
     spriteID: d76537f12bc8942c68633c601ddc83f1
@@ -169,7 +169,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 273
+      x: 272
       y: 137
       width: 64
       height: 34
@@ -244,7 +244,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: wall_02
     originalName: 
-    pivot: {x: 0.5, y: 0.09195402}
+    pivot: {x: 0.72727275, y: 0.0862069}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -264,7 +264,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: wall_01
     originalName: 
-    pivot: {x: 0.5, y: 0.09195402}
+    pivot: {x: 0.27272728, y: 0.0862069}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
