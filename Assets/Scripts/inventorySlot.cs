@@ -8,8 +8,8 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public static List<inventorySlot> allSlots = new List<inventorySlot>();
     [Header("UI")]
-    public Image slot;
-    public Image frame;
+    [HideInInspector] public Image slot;
+    [HideInInspector] public Image frame;
     public enum SlotType { Inventory, Hotbar, Chest, Store }
     public SlotType slotType;
 
@@ -20,8 +20,14 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public GameObject inventoryItemPrefab;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        slot = GetComponent<Image>();
+        frame = GetComponentInParent<Image>();
+    }
     void Start()
     {
+        
         ogColorSlot = slot.color;
         ogColorFrame = frame.color;
 

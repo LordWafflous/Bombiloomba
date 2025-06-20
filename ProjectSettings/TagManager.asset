@@ -6,6 +6,8 @@ TagManager:
   tags:
   - door
   - player
+  - inventoryManager
+  - inventory
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 2460800495
+    locked: 0
+  - name: floor
+    uniqueID: 457754501
+    locked: 0
+  - name: player
+    uniqueID: 667540497
     locked: 0

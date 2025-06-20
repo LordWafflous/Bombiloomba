@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class playerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
+    public static playerMovement Instance;
 
     [Header("Events")]
     UnityEvent shiftRun = new UnityEvent();
@@ -27,6 +28,22 @@ public class playerMovement : MonoBehaviour
 
     private Rigidbody2D player;
 
+
+ void Awake()
+    {
+        // Prevent duplicates
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            if (inventoryPanel != null)
+                DontDestroyOnLoad(inventoryPanel);
+        }
+        else
+        {
+            Destroy(gameObject); // Only keep the first instance
+        }
+    }
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -146,7 +163,7 @@ public class playerMovement : MonoBehaviour
     }
     public void clickDoor()
     {
-        SceneManager.LoadScene(2); //Wet Ruins
+        SceneManager.LoadScene(1); //Wet Ruins
     }
 
 
