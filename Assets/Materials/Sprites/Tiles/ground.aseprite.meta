@@ -150,7 +150,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 192
-      y: 119
+      y: 472
       width: 64
       height: 70
     spriteID: d76537f12bc8942c68633c601ddc83f1
@@ -170,7 +170,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 272
-      y: 137
+      y: 490
       width: 64
       height: 34
     spriteID: 9b38deb0cec5e4a44acd481a28e7ef7e
@@ -190,7 +190,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 192
-      y: 69
+      y: 422
       width: 64
       height: 42
     spriteID: ab3d05454dbc64bceb89559afe39a264
@@ -210,7 +210,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 352
-      y: 133
+      y: 486
       width: 64
       height: 42
     spriteID: b23c40ad3826b45a9a1be64a4341a64e
@@ -230,7 +230,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 880
-      y: 66
+      y: 419
       width: 112
       height: 112
     spriteID: 8868d3bd519654664bf1813a9731f49d
@@ -242,7 +242,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: wall_02
+  - name: wall_beige_02
     originalName: 
     pivot: {x: 0.72727275, y: 0.0862069}
     alignment: 9
@@ -250,7 +250,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 64
-      y: 4
+      y: 357
       width: 44
       height: 174
     spriteID: b8c291f2e78664dd59d2fd6b85f78c17
@@ -262,7 +262,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: wall_01
+  - name: wall_beige_01
     originalName: 
     pivot: {x: 0.27272728, y: 0.0862069}
     alignment: 9
@@ -270,10 +270,110 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 357
       width: 44
       height: 174
     spriteID: 83ab2ec6ae09e4bdb817f4f867e4fc9b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: wall_beige_03
+    originalName: 
+    pivot: {x: 0.5, y: 0.09146342}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 136
+      y: 373
+      width: 24
+      height: 164
+    spriteID: b248c0ec9ba5e4d93b6a9f9afb23f5b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: wall_beige_win01
+    originalName: 
+    pivot: {x: 0.27272728, y: 0.0862069}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 149
+      width: 44
+      height: 174
+    spriteID: 210f07041a9f244d5a8a66cb7f5149cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: wall_beige_win02
+    originalName: 
+    pivot: {x: 0.27272728, y: 0.0862069}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 149
+      width: 44
+      height: 174
+    spriteID: 9f1ce3f3ba31648ee8115b355f4183db
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: wall_beige_win03
+    originalName: 
+    pivot: {x: 0.27272728, y: 0.0862069}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 149
+      width: 44
+      height: 174
+    spriteID: b022e90f8ef134c3783d7e4dd864c407
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: KitCat
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 196
+      y: 147
+      width: 57
+      height: 79
+    spriteID: ae2d61c0fbbcc4af39279a3bf00f9ec7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -295,9 +395,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 20
-        y: 450
+        y: 97
         width: 988
-        height: 185
+        height: 538
       spriteId: e95f7ade2b899479784a375b8fb6ae70
     linkedCells: []
     parentIndex: -1
