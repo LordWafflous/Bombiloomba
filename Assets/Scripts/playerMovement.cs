@@ -77,6 +77,8 @@ public class playerMovement : MonoBehaviour
         shiftRun.Invoke();
         handleInventory();
 
+        
+
     }
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -84,14 +86,22 @@ public class playerMovement : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D col)
     {
-        Debug.Log("Triggered Door!");
+        
+            interactableObject interactable = col.GetComponent<interactableObject>();
+            if (interactable)
+            {
+                interactable.Interact();
+            }
+        
         if (col.gameObject.CompareTag("door") && Input.GetKeyDown(KeyCode.Mouse1) && sceneChange != null)
         {
+            Debug.Log("Triggered Door!");
             sceneChange.Invoke();
         }
+        
     }
 
-    void handleInventory()
+  void handleInventory()
     {
         if (inventoryPanel.activeSelf)
         {
