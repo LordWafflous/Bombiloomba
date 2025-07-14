@@ -16,7 +16,7 @@ TagManager:
   - Water
   - UI
   - room
-  - 
+  - colTiles
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
     locked: 0
   - name: background
     uniqueID: 2460800495
+    locked: 0
+  - name: collissionTile
+    uniqueID: 3045525871
     locked: 0
   - name: floor
     uniqueID: 457754501

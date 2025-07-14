@@ -163,7 +163,7 @@ public class playerMovement : MonoBehaviour
     }
     public void clickDoor()
     {
-        SceneManager.LoadScene(1); //Wet Ruins
+        SceneManager.LoadScene(2); //Wet Ruins
     }
 
 
